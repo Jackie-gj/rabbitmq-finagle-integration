@@ -18,11 +18,12 @@ class SenderExample {
    * Send 'Hello, world!'
    */
   def send = {
-    val bytes = new ByteArrayOutputStream
+    /* val bytes = new ByteArrayOutputStream
     val store = new ObjectOutputStream(bytes)
     store.writeObject("Hello, world!")
-    store.close
-    channel.basicPublish("", QUEUE_NAME, null, bytes.toByteArray)
+    store.close */
+    val payload = "Hello, world!"
+    channel.basicPublish("", QUEUE_NAME, null, payload.getBytes)
   }
 
 }
